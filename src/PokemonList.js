@@ -5,7 +5,7 @@ export default function PokemonList({ pokemon }) {
     return (
         <div>
             {pokemon.map(p => (
-                <PokemonItem p={p} key={p} />
+                <PokemonItem pokemonName={p[0]} pokemonUrl={p[1]} key={p[0]} />
             ))}
         </div>
     );
