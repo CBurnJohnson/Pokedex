@@ -12,7 +12,7 @@ const PokemonItem = ({ pokemonName, pokemonUrl }) => {
     // Grabbing the rest of the pokemon's data
     useEffect(() => {
         axios.get(pokemonUrl).then(res => {
-            setPokemonSprite(res.data.sprites.back_default);
+            setPokemonSprite(res.data.sprites.front_default);
             setPokemonMoves(res.data.moves.slice(0, 4).map(m => m.move.name));
             setPokemonType(res.data.types.map(t => t.type.name));
             setPokemonWeight(res.data.weight);
