@@ -4,12 +4,20 @@ function Pagination({ goToNextPage, goToPrevPage }) {
     return (
         <div className='btn-container'>
             {goToPrevPage && (
-                <button onClick={goToPrevPage} className='btn-page'>
+                <button
+                    onTouch={goToPrevPage}
+                    onClick={goToPrevPage}
+                    className='btn-page'
+                >
                     Previous
                 </button>
             )}
             {goToNextPage && (
-                <button onClick={goToNextPage} className='btn-page'>
+                <button
+                    onTouch={goToNextPage}
+                    onClick={goToNextPage}
+                    className='btn-page'
+                >
                     Next
                 </button>
             )}
