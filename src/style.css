@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+body {
+    background: #e50000;
+    font-family: Acme, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    color: #fff;
+}
+
 .container {
-    background: red;
+    background: #fff;
     width: 60vw;
     height: 80vh;
     position: absolute;
@@ -14,10 +27,19 @@
     top: 0;
     bottom: 0;
     margin: auto;
+    padding: 30px;
+    overflow: scroll;
 }
 
 .pokemon-item {
-    color: #ffffff;
+    color: #000;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 1em;
+}
+
+.pokemon-title {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
