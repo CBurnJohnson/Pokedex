@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 
 const PokemonItem = ({ pokemonName, pokemonUrl }) => {
@@ -35,11 +35,11 @@ const PokemonItem = ({ pokemonName, pokemonUrl }) => {
                         Type:{' '}
                         {pokemonType.map(type => {
                             return (
-                                <>
+                                <Fragment key={type}>
                                     {type.slice(0, 1).toUpperCase() +
                                         type.slice(1)}
                                     {pokemonType.length > 1 ? '/' : ''}
-                                </>
+                                </Fragment>
                             );
                         })}
                     </p>
