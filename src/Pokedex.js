@@ -3,13 +3,7 @@ import Pagination from './Pagination';
 import PokemonList from './PokemonList';
 import './style.css';
 
-const Pokedex = ({
-    pokemon,
-    nextPageUrl,
-    prevPageUrl,
-    goToPrevPage,
-    goToNextPage
-}) => {
+const Pokedex = ({ pokemon, goToPrevPage, goToNextPage }) => {
     return (
         <div className='container'>
             <PokemonList pokemon={pokemon} />
