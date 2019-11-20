@@ -10,7 +10,7 @@
 
 ## What I gained from this project:
 1. Gained a better understanding of http requests / consuming APIs.
-2. Learned how to make class components functional components that have states using hooks.
+2. Learned how to make class components functional components that have state using hooks.
 3. Soldified my understanding of passing props to components in react.
 4. Became more comfortable with promises in JavaScript.
 
