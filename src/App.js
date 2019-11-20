@@ -38,14 +38,13 @@ function App() {
         setCurrentPageUrl(prevPageUrl);
     };
 
-    if (loading) return 'Loading...';
-
     return (
         <>
             <Pokedex
                 pokemon={pokemon}
                 goToNextPage={nextPageUrl ? goToNextPage : null}
                 goToPrevPage={prevPageUrl ? goToPrevPage : null}
+                loading={loading}
             />
         </>
     );

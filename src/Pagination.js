@@ -2,9 +2,17 @@ import React from 'react';
 
 function Pagination({ goToNextPage, goToPrevPage }) {
     return (
-        <div>
-            {goToPrevPage && <button onClick={goToPrevPage}>Previous</button>}
-            {goToNextPage && <button onClick={goToNextPage}>Next</button>}
+        <div className='btn-container'>
+            {goToPrevPage && (
+                <button onClick={goToPrevPage} className='btn-page'>
+                    Previous
+                </button>
+            )}
+            {goToNextPage && (
+                <button onClick={goToNextPage} className='btn-page'>
+                    Next
+                </button>
+            )}
         </div>
     );
 }

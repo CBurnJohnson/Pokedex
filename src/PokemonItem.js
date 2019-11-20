@@ -6,6 +6,8 @@ const PokemonItem = ({ pokemonName, pokemonUrl }) => {
     const [pokemonMoves, setPokemonMoves] = useState([]);
     const [pokemonType, setPokemonType] = useState([]);
     const [pokemonWeight, setPokemonWeight] = useState();
+    const [pokemonHeight, setPokemonHeight] = useState();
+    const [pokemonId, setPokemonId] = useState();
 
     // Grabbing the rest of the pokemon's data
     useEffect(() => {
@@ -14,41 +16,51 @@ const PokemonItem = ({ pokemonName, pokemonUrl }) => {
             setPokemonMoves(res.data.moves.slice(0, 4).map(m => m.move.name));
             setPokemonType(res.data.types.map(t => t.type.name));
             setPokemonWeight(res.data.weight);
+            setPokemonHeight(res.data.height);
+            setPokemonId(res.data.id);
         });
     }, [pokemonUrl]);
 
     return (
-        <div className='pokemon-item'>
-            <div className='pokemon-title'>
-                {pokemonName.slice(0, 1).toUpperCase() + pokemonName.slice(1)}{' '}
-                <img src={pokemonSprite} alt='' />
+        <>
+            <div className='pokemon-item'>
+                <div className='pokemon-title'>
+                    #{pokemonId}{' '}
+                    {pokemonName.slice(0, 1).toUpperCase() +
+                        pokemonName.slice(1)}{' '}
+                    <img src={pokemonSprite} alt='' />
+                </div>
+                <div className='pokemon-details'>
+                    <p>
+                        Type:{' '}
+                        {pokemonType.map(type => {
+                            return (
+                                <>
+                                    {type.slice(0, 1).toUpperCase() +
+                                        type.slice(1)}
+                                    {pokemonType.length > 1 ? '/' : ''}
+                                </>
+                            );
+                        })}
+                    </p>
+                    <p>Height: {pokemonHeight}</p>
+                    <p>Weight: {pokemonWeight}lbs</p>
+                </div>
+                <div className='pokemon-moves'>
+                    <ol>
+                        {pokemonMoves.map(move => {
+                            return (
+                                <li key={move}>
+                                    {move.slice(0, 1).toUpperCase() +
+                                        move.slice(1)}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </div>
             </div>
-            <div className='pokemon-details'>
-                <p>
-                    Type:{' '}
-                    {pokemonType.map(type => {
-                        return (
-                            <>
-                                {type.slice(0, 1).toUpperCase() + type.slice(1)}
-                                {pokemonType.length > 1 ? '/' : ''}
-                            </>
-                        );
-                    })}
-                </p>
-                <p>Weight: {pokemonWeight}</p>
-            </div>
-            <div className='pokemon-moves'>
-                <ul>
-                    {pokemonMoves.map(move => {
-                        return (
-                            <li key={move}>
-                                {move.slice(0, 1).toUpperCase() + move.slice(1)}
-                            </li>
-                        );
-                    })}
-                </ul>
-            </div>
-        </div>
+            <hr />
+        </>
     );
 };
 
