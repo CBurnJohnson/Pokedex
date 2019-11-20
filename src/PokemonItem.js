@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const PokemonItem = ({ pokemonName, pokemonUrl }) => {
@@ -6,10 +6,12 @@ const PokemonItem = ({ pokemonName, pokemonUrl }) => {
     const [pokemonMoves, setPokemonMoves] = useState([]);
 
     // Grabbing the rest of the pokemon's data
-    axios.get(pokemonUrl).then(res => {
-        setPokemonSprite(res.data.sprites.back_default);
-        setPokemonMoves(res.data.moves.slice(0, 4).map(m => m.move.name));
-    });
+    useEffect(() => {
+        axios.get(pokemonUrl).then(res => {
+            setPokemonSprite(res.data.sprites.back_default);
+            setPokemonMoves(res.data.moves.slice(0, 4).map(m => m.move.name));
+        });
+    }, [pokemonUrl]);
 
     return (
         <div className='pokemon-item'>
