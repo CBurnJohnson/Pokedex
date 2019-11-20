@@ -1,8 +1,8 @@
 # Pokedex
 
-### React application that emulates a Pokedex created by consuming the Pokemon API (pokeapi.co).
+#### React application that emulates a Pokedex created by consuming the Pokemon API (pokeapi.co).
 
-#### Deployed Version: https://pokedex123.netlify.com/
+##### Deployed Version: https://pokedex123.netlify.com/
 
 ![homepage](https://user-images.githubusercontent.com/44681780/69285642-3cc15000-0ba6-11ea-8785-c48715ae809b.jpg)
 
